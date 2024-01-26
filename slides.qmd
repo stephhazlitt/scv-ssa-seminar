@@ -1,0 +1,33 @@
+---
+title: "Building Data Science Capacity within the BC Public Service"
+subtitle: "A Decade of Progress"
+author: "Stephanie Hazlitt"
+footer: "[🔗 github.com/stephhazlitt/scv-ssa-seminar](https://github.com/stephhazlitt/scv-ssa-seminar)"
+logo: "images/logo.png"
+execute:
+  echo: true
+format:
+  revealjs: 
+    theme: default
+engine: knitr
+editor: source
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
