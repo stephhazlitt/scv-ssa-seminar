@@ -1,10 +1,10 @@
 [![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 
-## 
+## SCV-SSA Seminar
 
 Talk for  Statistical Computing and Visualization (SCV) Committee Online Seminar Series, Statistics Society of Australia
 
-Online Seminar, February 9th, 2024
+Online Seminar, 9am February 9th, 2024
 
 
 #### Software
@@ -19,7 +19,12 @@ Online Seminar, February 9th, 2024
 - BC Mark - [Crown Copyright](https://www2.gov.bc.ca/gov/content?id=202ADEEF3B3840E99ABAB3D1D1A5007B) 
 
 #### Abstract
+Building Data Science Capacity within the BC Public Service: A Decade of Progress
 
+Stephanie Hazlitt, PhD
+Director, Data Science Partnerships, BC Stats
+
+Building data science capacity is important for governments to leverage the vast amounts of data available, improve decision-making, enhance public services, and address complex challenges. The BC Public Service has seen a significant shift towards the use of R and other data science tools for data analysis and communication. This talk will share insider observations of some of the events, infrastructure, and culture changes that have helped kickstart and support progress towards the use and growth of R and data science tools across teams in the BC Public Service. Together these changes, with ongoing organizational support, have enabled individuals, teams, and leadership in the BC Public Service to shift towards more programmatic, open and reproducible data science workflows.
 
 #### Licence
 
