@@ -109,12 +109,8 @@ Let's Ask ChatGPT 3.5:
 
 ![](images/slh_avatar.jpg){.absolute top=350 left=100 fig-alt="Image of a Black Oystercatcher with coloured leg bands" height=40%}![](images/BTRW_QLD_Dominique Sigg.jpg){.absolute top=350 left=400 fig-alt="Image of a ..." height=40%}![](images/envreportbc.png){.absolute top=400 left=600 fig-alt="Image of a ..." width=40%}
 
+
 ## From Data to Communication
-
-![](images/workflow.png){fig-alt="Image of a ..." fig-align=center}
-
-
-## Repeatable, Reproducible & Auditable
 
 ![](images/bcgov-soe.png){fig-alt="Image of a ..." fig-align=center height=70% width=70%}
 
@@ -122,12 +118,16 @@ Let's Ask ChatGPT 3.5:
 <https://www2.gov.bc.ca/gov/content/environment/research-monitoring-reporting/reporting/environmental-reporting-bc>
 :::
 
+## From Data to Communication
+
+![](images/workflow.png){fig-alt="Image of a ..." fig-align=center}
+
 
 ## There Has To Be A Better Way
 
 ![](https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif?cid=790b7611vf8h196cj64jy4avveugr20qnykk8ynny1j1os7v&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="Image of a cat madly typing on a laptop" fig-align=center}
 
-## The Beginning
+## The Beginning: 10 Years Ago
 
 ```{r}
 #| echo: FALSE
@@ -136,6 +136,11 @@ Let's Ask ChatGPT 3.5:
 
 tweet_screenshot(tweet_url("stephhazlitt", "449031152926330880"), maxwidth = 350)
 ```
+
+
+## Steph's New Focus
+
+![](https://media.giphy.com/media/WWasEv3MSNtio/giphy.gif?cid=790b76114pvukzevehohsjky11wz43u4qwzuwlnqy3jvv1ww&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="Image of a meer cat looking around with googly eyes." fig-align=center width=70% height=70%}
 
 
 ## The Journey: Use of R in the BC Public Service
