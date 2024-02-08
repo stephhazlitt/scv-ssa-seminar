@@ -4,14 +4,15 @@
 
 Talk for  Statistical Computing and Visualization (SCV) Committee Online Seminar Series, Statistics Society of Australia
 
-Online Seminar, 9am February 9th, 2024 (Sydney Time)
-
+Online Seminar, 9am February 9th, 2024 (AEDT; Sydney, Australia Time)
 
 #### Software
-
-
-#### Sources
-
+- [R](https://www.r-project.org/)
+- [Quarto](https://quarto.org)
+- [tidyverse](https://www.tidyverse.org/)
+- [bcmaps](https://bcgov.github.io/bcmaps/)
+- [bcdata](https://bcgov.github.io/bcdata/)
+- More [R packages 📦](https://github.com/stephhazlitt/scv-ssa-seminar/blob/main/slides.qmd#L29-L38)
 
 #### Images (if not already attributed)
 - British Columbia Parliament House: Parsa Mivehchi - Unsplash https://unsplash.com/license
