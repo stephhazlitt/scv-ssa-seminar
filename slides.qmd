@@ -231,6 +231,15 @@ BC Data Catalogue: <https://catalogue.data.gov.bc.ca>
 
 ![](images/bcdc.png){fig-alt="text" fig-align=center width=80% height=80%}
 
+## Rule of Three
+
+![](images/3-times.png){fig-alt="text" fig-align=center width=70% height=70%}
+
+
+::: {style="font-size: 60%;"}
+<https://bcgov.github.io/bcgov-rstats-public-presentations/2020-07-UseR2020-bcdata/2020-07-UseR2020-bcdata.html>
+:::
+
 ## bcdata 📦
 
 ![](images/bcdata.png){fig-alt="text" fig-align=center width=90% height=90%}
