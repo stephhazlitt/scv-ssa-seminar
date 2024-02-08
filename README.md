@@ -16,7 +16,7 @@ Online Seminar, 9am February 9th, 2024
 #### Images (if not already attributed)
 - British Columbia Parliament House: Parsa Mivehchi - Unsplash https://unsplash.com/license
 - bcgov Data Science CoP photos - [Copyright Province of British Columbia](https://www2.gov.bc.ca/gov/content/home/copyright)
-- BC Mark - [Crown Copyright](https://www2.gov.bc.ca/gov/content?id=202ADEEF3B3840E99ABAB3D1D1A5007B) 
+- BC, BC Stats Mark and Environmental Reporting BC Marks - [Crown Copyright](https://www2.gov.bc.ca/gov/content?id=202ADEEF3B3840E99ABAB3D1D1A5007B) 
 
 #### Abstract
 Building Data Science Capacity within the BC Public Service: A Decade of Progress
