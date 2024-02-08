@@ -1,9 +1,9 @@
 ---
-title: "Building Data Science Capacity within the BC Public Service"
-subtitle: "A Decade of Progress"
+title: "Building Data Science Capacity"
+subtitle: "A Decade of Progress in the BC Public Service"
 author: "Stephanie Hazlitt"
 footer: "[🔗 github.com/stephhazlitt/scv-ssa-seminar](https://github.com/stephhazlitt/scv-ssa-seminar)"
-logo: "images/logo.png"
+logo: "images/BC_BCS_H_RGB_pos.svg"
 execute:
   echo: true
 format:
@@ -13,21 +13,371 @@ engine: knitr
 editor: source
 ---
 
-## Quarto
+```{r}
+#| label: setup
+#| message: false
+#| include: false
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "",
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "graphics/prod/figs"
+)
 
-## Bullets
+library(dplyr)
+library(bcmaps)
+library(sf)
+library(ggplot2)
+library(viridis)
+library(readr)
+library(stringr)
+library(cowplot)
+library(tweetrmd) #devtools::install_github("gadenbuie/tweetrmd")
+library(magick)
 
-When you click the **Render** button a document will be generated that includes:
+bcgov_logo <- image_read("images/BCID_V_rgb_pos.png") |>
+  image_background("#fafafa") |>
+  image_trim()
 
--   Content authored with markdown
--   Output from executable code
+bc <- bc_neighbours()
 
-## Code
+bc_plot <- ggplot() +
+  geom_sf(data = bc , aes(fill = name), alpha = .5) +
+  geom_sf_text(
+    data = bc |> filter(name == "British Columbia"),
+    aes(label = name),
+    size = 8
+  ) +
+  geom_sf(
+    data = bc_cities() |>  filter(NAME == "Victoria"),
+    size = 8,
+    colour = "#3F3770FF"
+  ) +
+  theme_minimal() +
+  coord_sf(datum = NA) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme(legend.position = "none") +
+  scale_fill_viridis(discrete = TRUE,
+                     option = "viridis")
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+r_use_df <- read_csv("data/r-growth-bcps.csv")
+
+label_df <- readRDS("data/label_df.rds")
+repos_over_time <- readRDS("data/repos_over_time.rds")
+```
+
+
+## BC Public Service
+
+::: {layout="[30,23]"}
+
+![](images/parsa-mivehchi-rmHcG8mDtz0-unsplash.jpg){fig-alt="Image of British Columbia's Parliament House building located in Victoria, B.C. sourced from Unsplash." height=90%}
+
 
 ```{r}
-1 + 1
+#| echo: false
+#| fig-height: 9
+
+bc_plot
 ```
+
+Victoria, British Columbia 🇨🇦
+:::
+
+## Data Skills in the Public Sector
+
+Let's Ask ChatGPT 3.5:
+
+![](images/why-ds-capacity.png){fig-alt="." fig-align=center height=75%}
+
+## Steph Hazlitt
+
+```{r}
+#| eval: false
+
+## Steph's Career Path
+
+"Bird Biologist" |> 
+"Research Scientist" |> # trained in 🇦🇺
+"Conservation Specialist" |> # bcgov
+"Environmental Reporting" |>  # R
+"Data Scientist" |> 
+"Various Management Roles in Data Science & Engineering"
+```
+
+![](images/slh_avatar.jpg){.absolute top=350 left=100 fig-alt="Image of a Black Oystercatcher with coloured leg bands" height=40%}![](images/BTRW_QLD_Dominique Sigg.jpg){.absolute top=350 left=400 fig-alt="Image of a ..." height=40%}![](images/envreportbc.png){.absolute top=400 left=600 fig-alt="Image of a ..." width=40%}
+
+## From Data to Communication
+
+![](images/workflow.png){fig-alt="Image of a ..." fig-align=center}
+
+## There Has To Be A Better Way
+
+![](https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif?cid=790b7611vf8h196cj64jy4avveugr20qnykk8ynny1j1os7v&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="Image of a cat madly typing on a laptop" fig-align=center}
+
+## The Beginning
+
+```{r}
+#| echo: FALSE
+#| fig-alt: "Tweet by @stephhazlitt Excited about attending Software Carpentry bootcamp from March 2014"
+#| fig-align: center
+
+tweet_screenshot(tweet_url("stephhazlitt", "449031152926330880"), maxwidth = 350)
+```
+
+
+## The Journey: Use of R in the BC Public Service
+
+```{r}
+#| cache: false
+#| echo: false
+#| fig-width: 16
+#| fig-height: 7
+#| fig-alt: "Plot of significant milestones, shown with text labelling, in the use of R in the BC Public Service 2012 to 2021"
+
+r_changes <- ggdraw() +
+  draw_plot(
+    r_use_df %>%
+      ggplot(aes(year, fake_y)) +
+      geom_point(size = 0) +
+      geom_label(
+        aes(label = str_wrap(use_r, width = 10)),
+        size = 9,
+        fontface = "bold",
+        colour = "#440154FF"
+      ) +
+      scale_x_continuous(
+        limits = c(2011, 2021.5),
+        breaks = seq(2012, 2021, 1)
+      ) +
+      scale_y_continuous(limits = c(-1, 12)) +
+      theme_minimal() +
+      labs(x = NULL, y = NULL) +
+      theme(
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(size = 18, face = "bold"),
+        legend.position = "none",
+        panel.grid.minor = element_blank(),
+        plot.background = element_rect(fill = "#fafafa", colour = NA)
+      )
+  ) +
+  draw_image(bcgov_logo,
+             y = .33,
+             x = -.43,
+             scale = .20)
+r_changes
+```
+
+## 1) Encourage Early Adopters
+
+> Individuals or groups within an organization who enthusiastically embraces new ideas, technologies, or practices before they become widely accepted or mainstream. Early adopters drive innovation by being willing to experiment with new ideas and technologies. Their openness to change can lead to the discovery of better processes, products, or services.  (ChatGPT3.5)
+                                           
+
+## 2) Help Solve a Problem
+
+I have focussed a lot of my energy on the "getting the data" problem.
+
+![](images/r4ds-diagram.png){fig-alt="text" fig-align=center width=60% height=60%}
+
+::: {style="font-size: 60%;"}
+<https://r4ds.hadley.nz>
+:::
+
+
+## bcmaps 📦
+
+## I Want All the Data
+
+BC Data Catalogue
+
+![](images/bcdc.png){fig-alt="text" fig-align=center}
+
+## bcdata 📦
+
+
+## 3) Build Community
+
+![](images/code-together_Feb2020.jpeg){fig-alt="Picture of BC Public Service code together meet-up." fig-align="center" width=70% height=70%}
+
+## Support a Culture of Learning
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Tutorials
+- Hackathons
+- Workshops
+:::
+
+::: {.column width="60%"}
+![](images/Rcourse2014.jpg){fig-alt="Picture of BC Public Service first in-house R training workshop"}
+:::
+
+::::
+
+
+
+
+
+## 4) Modernizing Tools: bcgov GitHub 🎉
+
+![](images/bcgov-github-2015.png){fig-alt="bcgov GitHub web page screen shot from 2015" fig-align="center" height=80% width=80%}
+
+::: {style="font-size: 60%;"}
+<https://github.com/bcgov>
+:::
+
+## Open Learning Content
+
+![](images/bcgov-github-ds-resources.png){fig-alt="bcgov GitHub bcgov-data-science-resources readme web page screen shot." fig-align="center" width=70% height=70%}
+
+::: {style="font-size: 60%;"}
+<https://github.com/bcgov/bcgov-data-science-resources/wiki>
+:::
+
+## Helping Became Easier
+
+![](images/slh-helpme-gist.png){fig-alt="GitHub Gist web page example screen shot." fig-align="center" width=70% height=70%}
+
+::: {style="font-size: 60%;"}
+<https://gist.github.com/stephhazlitt/c6ccc36b5ea0ff190cf479659d164b8e>
+:::
+
+
+## Open Code 🚀
+
+✂️ & 📋 -> Collaborations -> Contributions -> Code Reviews
+
+![](images/bcgov-github-landing-2021.png){fig-alt="bcgov GitHub web page screen shot from 2021." fig-align="center" width=60% height=60%}
+
+
+::: {style="font-size: 60%;"}
+<https://github.com/bcgov>
+:::
+
+## From 🇨🇦 to 🇦🇺 via GitHub
+
+![](images/VicmapR.png){fig-alt="VicmapR package screen shot." fig-align="center"}
+
+
+## 10 Years: Use of R & GitHub in the BC Public Service
+
+```{r}
+#| echo: false
+#| fig-width: 16
+#| fig-height: 7
+#| fig-align: "center"
+#| fig-alt: "Plot showing the cumulative number of repositories in bcgov GitHub by top language used 2015 to 2021"
+
+ggplot(
+  repos_over_time |> filter(top_language != "R"),
+  aes(x = date, y = cumu, colour = top_language)
+) +
+  geom_line() +
+  geom_line(
+    data = repos_over_time %>% filter(top_language == "R"),
+    aes(x = date, y = cumu, colour = top_language),
+    colour = "#30123BFF",
+    size = 1.3
+  ) +
+  geom_text(
+    data = label_df %>% filter(top_language != "R"),
+    aes(y = cumu, label = top_language),
+    x = max(label_df$date) + 30,
+    nudge_y = 0,
+    size = 5
+  ) +
+  geom_text(
+    data = label_df %>% filter(top_language == "R"),
+    aes(y = cumu, label = top_language),
+    x = max(label_df$date) + 30,
+    nudge_y = 0,
+    size = 10,
+    colour = "#30123BFF",
+    fontface = "bold"
+  ) +
+  scale_x_date(date_breaks = "1 year",
+               date_labels = "%Y",
+               limits = as.Date(c(NA, '2024-01-01'))) +
+  labs(y = NULL,
+       x = NULL,
+       title = "Cumulative Number of bcgov GitHub Repositories by Top Language Used") +
+  guides(colour = FALSE) +
+  scale_colour_viridis(discrete = TRUE,
+                       option = "turbo",
+                       direction = -1) +
+  theme_minimal() +
+  labs(x = NULL, y = NULL) +
+  theme(
+    axis.text = element_text(size = 15),
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(size = 21),
+    plot.background = element_rect(fill = "#fafafa", colour = NA)
+  )
+```
+
+## Current State: bcgov R Open Source
+
+![](https://raw.githubusercontent.com/bcgov/bcdata/master/inst/sticker/bcdata.png){.absolute fig-alt="bcdata R package hexagon-shaped logo" top=75 width=15%}![](https://github.com/bcgov/fasstr/blob/main/man/figures/fasstr.png?raw=true){.absolute top=75 left=160 width=15% fig-alt="fasstr R package hexagon-shaped logo"}![](https://github.com/bcgov/ssdtools/blob/main/man/figures/logo.png?raw=true){.absolute top=75 left=320 width=15% fig-alt="ssdtools R package hexagon-shaped logo"}![](https://github.com/bcgov/elucidate/blob/main/man/figures/hex-elucidate.png?raw=true){.absolute top=75 left=480 width=15% fig-alt="elucidate R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/bcgov/bcgovr/master/tools/readme/logo.png){.absolute top=75 left=640 width=15% fig-alt="bcgovr R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/bcgov/bcmaps/master/inst/sticker/bcmaps.png){.absolute top=75 left=800 width=15% fig-alt="bcmaps R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/ropensci/tidyhydat/main/man/figures/tidyhydat.png){.absolute top=75 left=960 width=15% fig-alt="tidyhydat R package hexagon-shapedlogo"}
+
+
+![](images/env-shiny-example.png){.absolute top=300 left=0 width=50% fig-alt="Screen shot of bcgov R Shiny App showing municipal solid waste disposal rates across British Columbia"}![](images/bcstats-shiny-example.png){.absolute top=320 left=600 width=50% fig-alt="Screen shot of bcgov R Shiny App showing economic indicators for British Columbia"}
+
+
+## Current State: bcgov Data Science Community of Practice
+
+![](images/cop-logo.png){.absolute fig-alt="bcgov Data Science Community of Practice logo sticker." top=200 left=300 width=50%}
+
+![](https://git-scm.com/images/logo@2x.png){.absolute  fig-alt="Git software logo." top=550 left=220 width=20%}
+
+![](https://www.r-project.org/Rlogo.png){.absolute fig-alt="R Project for Statistical Computing logo." top=550 left=470 width=10%}
+
+![](https://www.python.org/static/img/python-logo@2x.png){.absolute  fig-alt="Python logo." top=550 left=620 width=30%}
+
+
+
+## It Starts With People
+
+![](images/data-peeps.jpeg){fig-alt="Picture of bcgov Data Science Community members interacting on a video call." fig-align="center" width=80% height=80%}
+
+
+## Find People Through Communities
+
+![](images/communities-hex.png){fig-alt="Hex sticker logos for rOpenSci and The Carpentries"}
+
+![](https://community.rstudio.com/uploads/default/original/3X/1/4/14e196d9bc9868b7e350a697a5d411597c6e2fe6.jpeg){.absolute top=200 left=500 width=50%}
+
+
+![](https://scotttalks.info/user-http/img/green_short_hexsticker.png){.absolute left=700 width=30%}
+
+![](https://community-cdn.rstudio.com/uploads/default/original/3X/e/6/e61d5c8d76feee06efb84f95880e3fc4e12cf269.png){.absolute top=300 left=100 height=50% height=50%}
+
+
+
+## Speed of Trust
+
+```{r}
+#| echo: FALSE
+#| fig-alt: "Image of a tweet by @stephhazlitt quoting a speaker saying go at the speed of trust from October 2019"
+
+tweet_screenshot(tweet_url("stephhazlitt", "1179819866955534336"))
+```
+
+
+## What is Next?
+
+![](images/chatgpt.png){fig-align=center}
+
+## Thank You Statistical Computing and Visualization Committee
+
+<br>
+
+@stephhazlitt on GitHub
+
+<https://www.linkedin.com/in/stephanie-hazlitt/>
+
+<https://github.com/stephhazlitt/scv-ssa-seminar>
+
