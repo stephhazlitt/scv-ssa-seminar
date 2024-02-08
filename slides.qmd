@@ -264,6 +264,7 @@ bcdata::bcdc_query_geodata(record = "bc-airports")
 
 ```{r}
 #| cache: true
+#| code-line-numbers: "1-3,7"
 
 bcdata::bcdc_query_geodata(record = "bc-airports") |>
   filter(LOCALITY %in% c("Victoria", "Saanich", "View Royal")) |>
