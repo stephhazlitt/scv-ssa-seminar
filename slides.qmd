@@ -1,7 +1,7 @@
 ---
 title: "Building Data Science Capacity"
 subtitle: "A Decade of Progress in the BC Public Service"
-author: "Stephanie Hazlitt"
+author: "Stephanie Hazlitt, PhD"
 footer: "[🔗 github.com/stephhazlitt/scv-ssa-seminar](https://github.com/stephhazlitt/scv-ssa-seminar)"
 logo: "images/BC_BCS_H_RGB_pos.svg"
 execute:
@@ -102,7 +102,7 @@ Let's Ask ChatGPT 3.5:
 "Bird Biologist" |> 
 "Research Scientist" |> # trained in 🇦🇺
 "Conservation Specialist" |> # bcgov
-"Environmental Reporting" |>  # R
+"State of Environment Reporting" |>  # R
 "Data Scientist" |> 
 "Various Management Roles in Data Science & Engineering"
 ```
@@ -112,6 +112,16 @@ Let's Ask ChatGPT 3.5:
 ## From Data to Communication
 
 ![](images/workflow.png){fig-alt="Image of a ..." fig-align=center}
+
+
+## Repeatable, Reproducible & Auditable
+
+![](images/bcgov-soe.png){fig-alt="Image of a ..." fig-align=center height=70% width=70%}
+
+::: {style="font-size: 40%;"}
+<https://www2.gov.bc.ca/gov/content/environment/research-monitoring-reporting/reporting/environmental-reporting-bc>
+:::
+
 
 ## There Has To Be A Better Way
 
@@ -149,8 +159,8 @@ r_changes <- ggdraw() +
         colour = "#440154FF"
       ) +
       scale_x_continuous(
-        limits = c(2011, 2021.5),
-        breaks = seq(2012, 2021, 1)
+        limits = c(2012, 2021.5),
+        breaks = seq(2013, 2021, 1)
       ) +
       scale_y_continuous(limits = c(-1, 12)) +
       theme_minimal() +
@@ -190,6 +200,11 @@ I have focussed a lot of my energy on the "getting the data" problem.
 
 ![](images/bcmaps.png){fig-alt="text" fig-align=center}
 
+::: {style="font-size: 60%;"}
+<https://bcgov.github.io/bcmaps/>
+:::
+
+
 ## bcmaps 📦
 
 ```{r}
@@ -207,13 +222,17 @@ bcmaps::available_layers()
 
 ## Now I Want All the Data
 
-BC Data Catalogue
+BC Data Catalogue: <https://catalogue.data.gov.bc.ca>
 
-![](images/bcdc.png){fig-alt="text" fig-align=center}
+![](images/bcdc.png){fig-alt="text" fig-align=center width=80% height=80%}
 
 ## bcdata 📦
 
-![](images/bcdata.png){fig-alt="text" fig-align=center}
+![](images/bcdata.png){fig-alt="text" fig-align=center width=90% height=90%}
+
+::: {style="font-size: 60%;"}
+<https://bcgov.github.io/bcdata/>
+:::
 
 ## Airports Metadata
 
@@ -222,6 +241,8 @@ BC Data Catalogue
 ## bcdata 📦
 
 ```{r}
+#| cache: true
+
 bcdata::bcdc_get_data(record = "bc-airports",
               resource = "fcccba36-b528-4731-8978-940b3cc04f69")
 ```
@@ -229,22 +250,35 @@ bcdata::bcdc_get_data(record = "bc-airports",
 ## bcdata 📦
 
 ```{r}
+#| cache: true
+
 bcdata::bcdc_query_geodata(record = "bc-airports")
 ```
 
 ## bcdata 📦
 
 ```{r}
+#| cache: true
+
 bcdata::bcdc_query_geodata(record = "bc-airports") |>
   filter(LOCALITY %in% c("Victoria", "Saanich", "View Royal")) |>
   collect() |>
   ggplot() +
   geom_sf() +
   geom_sf(
-    data = bcmaps::census_division() |> filter(CENSUS_DIVISION_NAME == "Capital"),
+    data = bcmaps::census_subdivision() |>
+      filter(CENSUS_SUBDIVISION_NAME %in% c("Victoria", "Saanich")),
     fill = NA
-  ) 
+  )
 ```
+
+## bcdata 📦 for Python
+
+![](images/bcdata-python.png){fig-alt="text" fig-align=center width=70% height=70%}
+
+::: {style="font-size: 60%;"}
+<https://pypi.org/project/bcdata/>
+:::
 
 ## 3) Build Community
 
@@ -265,9 +299,6 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 :::
 
 ::::
-
-
-
 
 
 ## 4) Modernizing Tools: bcgov GitHub 🎉
@@ -308,8 +339,11 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 
 ## From 🇨🇦 to 🇦🇺 via GitHub
 
-![](images/VicmapR.png){fig-alt="VicmapR package screen shot." fig-align="center"}
+![](images/VicmapR.png){fig-alt="VicmapR package screen shot." fig-align=center width=70% height=70%}
 
+::: {style="font-size: 60%;"}
+<https://justincally.github.io/VicmapR/>
+:::
 
 ## 10 Years: Use of R & GitHub in the BC Public Service
 
@@ -388,25 +422,23 @@ ggplot(
 
 
 
-## It Starts With People
+## Observation: It Starts With People
 
 ![](images/data-peeps.jpeg){fig-alt="Picture of bcgov Data Science Community members interacting on a video call." fig-align="center" width=80% height=80%}
 
 
-## Find People Through Communities
+## Observation: There Are Many People
 
-![](images/communities-hex.png){fig-alt="Hex sticker logos for rOpenSci and The Carpentries"}
+![](images/communities-hex.png){.absolute fig-alt="Hex sticker logos for rOpenSci and The Carpentries" top=100 left=100 height=70%}
 
-![](https://community.rstudio.com/uploads/default/original/3X/1/4/14e196d9bc9868b7e350a697a5d411597c6e2fe6.jpeg){.absolute top=200 left=500 width=50%}
+![](https://community.rstudio.com/uploads/default/original/3X/1/4/14e196d9bc9868b7e350a697a5d411597c6e2fe6.jpeg){.absolute top=450 left=600 width=50%}
 
+![](https://community-cdn.rstudio.com/uploads/default/original/3X/e/6/e61d5c8d76feee06efb84f95880e3fc4e12cf269.png){.absolute top=350 left=0 height=30% height=35%}
 
-![](https://scotttalks.info/user-http/img/green_short_hexsticker.png){.absolute left=700 width=30%}
-
-![](https://community-cdn.rstudio.com/uploads/default/original/3X/e/6/e61d5c8d76feee06efb84f95880e3fc4e12cf269.png){.absolute top=300 left=100 height=50% height=50%}
-
+![](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/static/tt_logo.png){.absolute top=150 left=500 height=30% height=35%}
 
 
-## Speed of Trust
+## Observation: Move at the Speed of Trust
 
 ```{r}
 #| echo: FALSE
@@ -418,15 +450,24 @@ tweet_screenshot(tweet_url("stephhazlitt", "1179819866955534336"))
 
 ## What is Next?
 
-![](images/chatgpt.png){fig-align=center}
+> Building data literacy and improving reproducibility and auditability of public sector data workflows is:
+>
+> - important for promoting transparency, accountability, and public trust
+> - contributes to more informed and fair decision-making processes
 
-## Thank You Statistical Computing and Visualization Committee
+## What is Next?
 
+![](images/boliviainteligente-pDYtprm28Lc-unsplash.jpg){fig-align=center width=70% height=70%}
+
+## 
+
+Thank You for the invitation Statistical Computing and Visualization Committee!
+
+<br>
 <br>
 
 @stephhazlitt on GitHub
 
 <https://www.linkedin.com/in/stephanie-hazlitt/>
 
-<https://github.com/stephhazlitt/scv-ssa-seminar>
 
