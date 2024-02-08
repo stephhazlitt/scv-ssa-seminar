@@ -336,7 +336,7 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 
 ✂️ & 📋 -> Collaborations -> Contributions -> Code Reviews
 
-![](images/bcgov-github-landing-2021.png){fig-alt="bcgov GitHub web page screen shot from 2021." fig-align="center" width=60% height=60%}
+![](images/bcgov-github-landing-2024.png){fig-alt="bcgov GitHub web page screen shot from 2021." fig-align="center" width=60% height=60%}
 
 
 ::: {style="font-size: 60%;"}
