@@ -453,7 +453,7 @@ ggplot(
 ![](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/static/tt_logo.png){.absolute top=150 left=500 height=30% height=35%}
 
 
-## Observation: Move at the Speed of Trust
+## Observation: Trust is Key
 
 ```{r}
 #| echo: FALSE
