@@ -77,8 +77,10 @@ repos_over_time <- readRDS("data/repos_over_time.rds")
 
 
 ```{r}
+#| label: bc-plot
 #| echo: false
 #| fig-height: 9
+#| fig-alt: "Plot of British Columbia and neighbouring jurisdiction bourndaies with the location of the city of Victoria identified."
 
 bc_plot
 ```
@@ -90,11 +92,12 @@ Victoria, British Columbia 🇨🇦
 
 Let's Ask ChatGPT 3.5:
 
-![](images/why-ds-capacity.png){fig-alt="." fig-align=center height=75%}
+![](images/why-ds-capacity.png){fig-alt="A screenshot from ChatGPT3.5 summarizing the importance of data skills in the public sector." fig-align=center height=75%}
 
 ## Steph Hazlitt
 
 ```{r}
+#| label: steph-career
 #| eval: false
 
 ## Steph's Career Path
@@ -107,12 +110,12 @@ Let's Ask ChatGPT 3.5:
 "Various Management Roles in Data Science & Engineering"
 ```
 
-![](images/slh_avatar.jpg){.absolute top=350 left=100 fig-alt="Image of a Black Oystercatcher with coloured leg bands" height=40%}![](images/BTRW_QLD_Dominique Sigg.jpg){.absolute top=350 left=400 fig-alt="Image of a ..." height=40%}![](images/envreportbc.png){.absolute top=400 left=600 fig-alt="Image of a ..." width=40%}
+![](images/slh_avatar.jpg){.absolute fig-alt="Image of a Black Oystercatcher with coloured leg bands" top=350 left=100 height=40%}![](images/BTRW_QLD_Dominique Sigg.jpg){.absolute top=350 left=400 fig-alt="Image of a brush-tailed rock wallaby in Queensland, Australia (photo credit: Dominique Sigg)." height=40%}![](images/envreportbc.png){.absolute fig-alt="Image of a the Environmental Reporting BC logo and work mark." top=400 left=600 width=40%}
 
 
 ## From Data to Communication
 
-![](images/bcgov-soe.png){fig-alt="Image of a ..." fig-align=center height=70% width=70%}
+![](images/bcgov-soe.png){fig-alt="Image of the Environmental Reporting BC website landing page." fig-align=center height=70% width=70%}
 
 ::: {style="font-size: 40%;"}
 <https://www2.gov.bc.ca/gov/content/environment/research-monitoring-reporting/reporting/environmental-reporting-bc>
@@ -120,17 +123,18 @@ Let's Ask ChatGPT 3.5:
 
 ## From Data to Communication
 
-![](images/workflow.png){fig-alt="Image of a ..." fig-align=center}
+![](images/workflow.png){fig-alt="Image of a data workflow using many different software tools shown using logos (e.g., MS Excel, R, PDF)." fig-align=center}
 
 
 ## There Has To Be A Better Way
 
-![](https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif?cid=790b7611vf8h196cj64jy4avveugr20qnykk8ynny1j1os7v&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="Image of a cat madly typing on a laptop" fig-align=center}
+![](https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif?cid=790b7611vf8h196cj64jy4avveugr20qnykk8ynny1j1os7v&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="GIF image of a cat madly typing on a laptop sourced from Giphy" fig-align=center}
 
 ## The Beginning: 10 Years Ago
 
 ```{r}
-#| echo: FALSE
+#| label: carpentries-tweet
+#| echo: false
 #| fig-alt: "Tweet by @stephhazlitt Excited about attending Software Carpentry bootcamp from March 2014"
 #| fig-align: center
 
@@ -140,12 +144,17 @@ tweet_screenshot(tweet_url("stephhazlitt", "449031152926330880"), maxwidth = 350
 
 ## Steph's New Focus
 
-![](https://media.giphy.com/media/WWasEv3MSNtio/giphy.gif?cid=790b76114pvukzevehohsjky11wz43u4qwzuwlnqy3jvv1ww&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="Image of a meer cat looking around with googly eyes." fig-align=center width=70% height=70%}
+Reproducible & Auditable Data Workflows in R
+
+<br>
+
+![](https://media.giphy.com/media/WWasEv3MSNtio/giphy.gif?cid=790b76114pvukzevehohsjky11wz43u4qwzuwlnqy3jvv1ww&ep=v1_gifs_search&rid=giphy.gif&ct=g){fig-alt="GIF image of a meercat looking around with googly eyes sourced from Giphy." fig-align=center width=50% height=50%}
 
 
 ## The Journey: Use of R in the BC Public Service
 
 ```{r}
+#| label: bcgov-r-plot
 #| cache: false
 #| echo: false
 #| fig-width: 16
@@ -192,9 +201,9 @@ r_changes
 
 ## 2) Help Solve a Problem
 
-I have focussed a lot of my energy on the "getting the data" problem.
+I have focused a lot of my energy on the "getting the data" problem.
 
-![](images/r4ds-diagram.png){fig-alt="text" fig-align=center width=60% height=60%}
+![](images/r4ds-diagram.png){fig-alt="Figure showing a data workflow sourced from the R for Data Science book." fig-align=center width=60% height=60%}
 
 ::: {style="font-size: 60%;"}
 <https://r4ds.hadley.nz>
@@ -203,7 +212,7 @@ I have focussed a lot of my energy on the "getting the data" problem.
 
 ## bcmaps 📦
 
-![](images/bcmaps.png){fig-alt="text" fig-align=center}
+![](images/bcmaps.png){fig-alt="bcmaps R package website landing page." fig-align=center}
 
 ::: {style="font-size: 60%;"}
 <https://bcgov.github.io/bcmaps/>
@@ -213,6 +222,8 @@ I have focussed a lot of my energy on the "getting the data" problem.
 ## bcmaps 📦
 
 ```{r}
+#| label: bc-neigbours
+
 library(bcmaps)
 library(sf)
 
@@ -222,6 +233,8 @@ plot(st_geometry(bc_neighbours()))
 ## bcmaps 📦
 
 ```{r}
+#| label: available-layers
+
 bcmaps::available_layers()
 ```
 
@@ -229,11 +242,11 @@ bcmaps::available_layers()
 
 BC Data Catalogue: <https://catalogue.data.gov.bc.ca>
 
-![](images/bcdc.png){fig-alt="text" fig-align=center width=80% height=80%}
+![](images/bcdc.png){fig-alt="Picture of the BC Data Catalogue website landing page." fig-align=center width=80% height=80%}
 
 ## Rule of Three
 
-![](images/3-times.png){fig-alt="text" fig-align=center width=70% height=70%}
+![](images/3-times.png){fig-alt="Picture of three cartoon fish highlighting the rule of three in software development." fig-align=center width=70% height=70%}
 
 
 ::: {style="font-size: 60%;"}
@@ -242,7 +255,7 @@ BC Data Catalogue: <https://catalogue.data.gov.bc.ca>
 
 ## bcdata 📦
 
-![](images/bcdata.png){fig-alt="text" fig-align=center width=90% height=90%}
+![](images/bcdata.png){fig-alt="bcdata R package website landing page." fig-align=center width=90% height=90%}
 
 ::: {style="font-size: 60%;"}
 <https://bcgov.github.io/bcdata/>
@@ -250,11 +263,12 @@ BC Data Catalogue: <https://catalogue.data.gov.bc.ca>
 
 ## Airports Metadata
 
-![](images/airports.png){fig-alt="text" fig-align=center}
+![](images/airports.png){fig-alt="Picture of the BC Aiports metadata record from the BC Data Catalogue." fig-align=center}
 
 ## bcdata 📦
 
 ```{r}
+#| label: get-data
 #| cache: true
 
 bcdata::bcdc_get_data(record = "bc-airports",
@@ -264,6 +278,7 @@ bcdata::bcdc_get_data(record = "bc-airports",
 ## bcdata 📦
 
 ```{r}
+#| label: get-geodata
 #| cache: true
 
 bcdata::bcdc_query_geodata(record = "bc-airports")
@@ -272,6 +287,7 @@ bcdata::bcdc_query_geodata(record = "bc-airports")
 ## bcdata 📦
 
 ```{r}
+#| label: query-geodata
 #| cache: true
 #| code-line-numbers: "1-3,7"
 
@@ -289,7 +305,7 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 
 ## bcdata 📦 for Python
 
-![](images/bcdata-python.png){fig-alt="text" fig-align=center width=70% height=70%}
+![](images/bcdata-python.png){fig-alt="Picture of the bcdata Python pypi module webpage." fig-align=center width=70% height=70%}
 
 ::: {style="font-size: 60%;"}
 <https://pypi.org/project/bcdata/>
@@ -345,7 +361,7 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 
 ✂️ & 📋 -> Collaborations -> Contributions -> Code Reviews
 
-![](images/bcgov-github-landing-2024.png){fig-alt="bcgov GitHub web page screen shot from 2021." fig-align="center" width=80% height=80%}
+![](images/bcgov-github-landing-2024.png){fig-alt="bcgov GitHub web page screen shot from 2024." fig-align="center" width=80% height=80%}
 
 
 ::: {style="font-size: 60%;"}
@@ -354,7 +370,7 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 
 ## From 🇨🇦 to 🇦🇺 via GitHub
 
-![](images/VicmapR.png){fig-alt="VicmapR package screen shot." fig-align=center width=70% height=70%}
+![](images/VicmapR.png){fig-alt="Picture of the VicmapR R package website." fig-align=center width=70% height=70%}
 
 ::: {style="font-size: 60%;"}
 <https://justincally.github.io/VicmapR/>
@@ -363,11 +379,12 @@ bcdata::bcdc_query_geodata(record = "bc-airports") |>
 ## 10 Years: Use of R & GitHub in the BC Public Service
 
 ```{r}
+#| label: gh-repo-count
 #| echo: false
 #| fig-width: 16
 #| fig-height: 7
 #| fig-align: "center"
-#| fig-alt: "Plot showing the cumulative number of repositories in bcgov GitHub by top language used 2015 to 2021"
+#| fig-alt: "Plot showing the cumulative number of repositories in bcgov GitHub by top language used 2015 to 2024."
 
 ggplot(
   repos_over_time |> filter(top_language != "R"),
@@ -419,7 +436,7 @@ ggplot(
 
 ## Current State: bcgov R Open Source
 
-![](https://raw.githubusercontent.com/bcgov/bcdata/master/inst/sticker/bcdata.png){.absolute fig-alt="bcdata R package hexagon-shaped logo" top=75 width=15%}![](https://github.com/bcgov/fasstr/blob/main/man/figures/fasstr.png?raw=true){.absolute top=75 left=160 width=15% fig-alt="fasstr R package hexagon-shaped logo"}![](https://github.com/bcgov/ssdtools/blob/main/man/figures/logo.png?raw=true){.absolute top=75 left=320 width=15% fig-alt="ssdtools R package hexagon-shaped logo"}![](https://github.com/bcgov/elucidate/blob/main/man/figures/hex-elucidate.png?raw=true){.absolute top=75 left=480 width=15% fig-alt="elucidate R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/bcgov/bcgovr/master/tools/readme/logo.png){.absolute top=75 left=640 width=15% fig-alt="bcgovr R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/bcgov/bcmaps/master/inst/sticker/bcmaps.png){.absolute top=75 left=800 width=15% fig-alt="bcmaps R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/ropensci/tidyhydat/main/man/figures/tidyhydat.png){.absolute top=75 left=960 width=15% fig-alt="tidyhydat R package hexagon-shapedlogo"}
+![](https://raw.githubusercontent.com/bcgov/bcdata/master/inst/sticker/bcdata.png){.absolute fig-alt="bcdata R package hexagon-shaped logo" top=75 width=15%}![](https://github.com/bcgov/fasstr/blob/main/man/figures/fasstr.png?raw=true){.absolute top=75 left=160 width=15% fig-alt="fasstr R package hexagon-shaped logo"}![](https://github.com/bcgov/ssdtools/blob/main/man/figures/logo.png?raw=true){.absolute top=75 left=320 width=15% fig-alt="ssdtools R package hexagon-shaped logo"}![](https://github.com/bcgov/elucidate/blob/main/man/figures/hex-elucidate.png?raw=true){.absolute top=75 left=480 width=15% fig-alt="elucidate R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/bcgov/bcgovr/master/tools/readme/logo.png){.absolute top=75 left=640 width=15% fig-alt="bcgovr R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/bcgov/bcmaps/master/inst/sticker/bcmaps.png){.absolute top=75 left=800 width=15% fig-alt="bcmaps R package hexagon-shaped logo"}![](https://raw.githubusercontent.com/ropensci/tidyhydat/main/man/figures/tidyhydat.png){.absolute top=75 left=960 width=15% fig-alt="tidyhydat R package hexagon-shaped logo"}
 
 
 ![](images/env-shiny-example.png){.absolute top=300 left=0 width=50% fig-alt="Screen shot of bcgov R Shiny App showing municipal solid waste disposal rates across British Columbia"}![](images/bcstats-shiny-example.png){.absolute top=320 left=600 width=50% fig-alt="Screen shot of bcgov R Shiny App showing economic indicators for British Columbia"}
@@ -436,7 +453,6 @@ ggplot(
 ![](https://www.python.org/static/img/python-logo@2x.png){.absolute  fig-alt="Python logo." top=550 left=620 width=30%}
 
 
-
 ## Observation: It Starts With People
 
 ![](images/data-peeps.jpeg){fig-alt="Picture of bcgov Data Science Community members interacting on a video call." fig-align="center" width=80% height=80%}
@@ -446,16 +462,17 @@ ggplot(
 
 ![](images/communities-hex.png){.absolute fig-alt="Hex sticker logos for rOpenSci and The Carpentries" top=100 left=100 height=70%}
 
-![](https://community.rstudio.com/uploads/default/original/3X/1/4/14e196d9bc9868b7e350a697a5d411597c6e2fe6.jpeg){.absolute top=450 left=600 width=50%}
+![](https://community.rstudio.com/uploads/default/original/3X/1/4/14e196d9bc9868b7e350a697a5d411597c6e2fe6.jpeg){.absolute fig-alt="Logo for the Posit Community." top=450 left=600 width=50%}
 
-![](https://community-cdn.rstudio.com/uploads/default/original/3X/e/6/e61d5c8d76feee06efb84f95880e3fc4e12cf269.png){.absolute top=350 left=0 height=30% height=35%}
+![](https://community-cdn.rstudio.com/uploads/default/original/3X/e/6/e61d5c8d76feee06efb84f95880e3fc4e12cf269.png){.absolute fig-alt="Hex sticker logo for RLadies Organization." top=350 left=0 height=30% height=35%}
 
-![](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/static/tt_logo.png){.absolute top=150 left=500 height=30% height=35%}
+![](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/static/tt_logo.png){.absolute fig-alt="Logo for the Tidy Tuesday Organization." top=150 left=500 height=30% height=35%}
 
 
 ## Observation: Trust is Key
 
 ```{r}
+#| label: trust-tweet
 #| echo: FALSE
 #| fig-alt: "Image of a tweet by @stephhazlitt quoting a speaker saying go at the speed of trust from October 2019"
 
@@ -472,7 +489,7 @@ tweet_screenshot(tweet_url("stephhazlitt", "1179819866955534336"))
 
 ## What is Next?
 
-![](images/boliviainteligente-pDYtprm28Lc-unsplash.jpg){fig-align=center width=70% height=70%}
+![](images/boliviainteligente-pDYtprm28Lc-unsplash.jpg){fig-alt="Image of ChatGPT logo in a Macbook doc sourced from Unsplash." fig-align=center width=70% height=70%}
 
 ## 
 
