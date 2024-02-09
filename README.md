@@ -6,6 +6,9 @@ Talk for  Statistical Computing and Visualization (SCV) Committee Online Seminar
 
 Online Seminar, 9am February 9th, 2024 (AEDT; Sydney, Australia Time)
 
+- Recording on YouTube (TBA)
+- [Slides](https://stephhazlitt.github.io/scv-ssa-seminar/slides#1)
+
 #### Software
 - [R](https://www.r-project.org/)
 - [Quarto](https://quarto.org)
@@ -24,7 +27,6 @@ Online Seminar, 9am February 9th, 2024 (AEDT; Sydney, Australia Time)
 Building Data Science Capacity within the BC Public Service: A Decade of Progress
 
 Stephanie Hazlitt, PhD
-Director, Data Science Partnerships, BC Stats
 
 Building data science capacity is important for governments to leverage the vast amounts of data available, improve decision-making, enhance public services, and address complex challenges. The BC Public Service has seen a significant shift towards the use of R and other data science tools for data analysis and communication. This talk will share insider observations of some of the events, infrastructure, and culture changes that have helped kickstart and support progress towards the use and growth of R and data science tools across teams in the BC Public Service. Together these changes, with ongoing organizational support, have enabled individuals, teams, and leadership in the BC Public Service to shift towards more programmatic, open and reproducible data science workflows.
 
