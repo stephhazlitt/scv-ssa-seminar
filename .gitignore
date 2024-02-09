@@ -2,3 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+.quarto
+.httr-oauth
+.DS_Store
+readme.html
+slides_cache/
+slides_files/
