@@ -9,6 +9,7 @@ execute:
 format:
   revealjs: 
     theme: default
+engine: knitr
 editor: source
 ---
 
