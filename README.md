@@ -2,12 +2,12 @@
 
 ## SCV-SSA Seminar
 
-Talk for  Statistical Computing and Visualization (SCV) Committee Online Seminar Series, Statistics Society of Australia
+Talk for the Statistical Computing and Visualization (SCV) Committee Online Seminar Series, Statistics Society of Australia
 
 Online Seminar, 9am February 9th, 2024 (AEDT; Sydney, Australia Time)
 
 - Recording on YouTube (TBA)
-- [Slides](https://stephhazlitt.github.io/scv-ssa-seminar/slides#1)
+- Slides: <https://stephhazlitt.github.io/scv-ssa-seminar/slides>
 
 #### Software
 - [R](https://www.r-project.org/)
